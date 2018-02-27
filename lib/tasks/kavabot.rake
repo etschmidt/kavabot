@@ -9,13 +9,11 @@ namespace :kavabot do
 	  config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
 	end
 
-	@topic = ["#kava", "#crossfit", "#wod", "#weigtlifting", 
-		"#workout", "#gymlife", "#personaltrainer", "#excerise",
-		"#bodybuilding", "#nutrition"].sample
+	@topic = ["#kava", "#kava", "#kava", "#kava", "#kavabars", "#hawaii", "#vanuatu", "#fiji"].sample
 
 	task :favorite => :environment do
 		
-		tweets = client.search(@topic, lang: "en").take(5) || ""
+		tweets = client.search(@topic, lang: "en").take(3) || ""
 
 		tweets.each do |tw|
 			if !tw.favorited?
