@@ -13,7 +13,7 @@ namespace :kavabot do
 
 	task :favorite => :environment do
 		
-		tweets = client.search(@topic, lang: "en").take(3) || ""
+		tweets = client.search(@topic, lang: "en").take(10) || ""
 
 		tweets.each do |tw|
 			if !tw.favorited?
