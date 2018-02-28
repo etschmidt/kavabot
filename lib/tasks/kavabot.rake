@@ -43,7 +43,7 @@ namespace :kavabot do
 		client.search("#stressed", search_options).take(1).each do |tweet|
 		  
 		client.favorite(tweet)
-		client.retweet!(tweet, text, in_reply_to_status_id: tweet.id)
+		client.retweet!(tweet, options: text, in_reply_to_status_id: tweet.id)
 		
 		end
 
