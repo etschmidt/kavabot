@@ -11,9 +11,13 @@ namespace :kavabot do
 
 	@topic = ["#kava", "#kava", "#kava", "#kava", "#kavabars", "#hawaii", "#vanuatu", "#fiji"].sample
 
+	search_options = {
+		result_type: "recent"
+	}
+
 	task :favorite => :environment do
 		
-		tweets = client.search(@topic, lang: "en").take(10) || ""
+		tweets = client.search(@topic, search_options).take(10) || ""
 
 		tweets.each do |tw|
 			if !tw.favorited?
@@ -25,11 +29,23 @@ namespace :kavabot do
 
 	task :retweet => :environment do
 
-		tweet = client.search(@topic, lang: "en").take(1) || ""
+		tweet = client.search(@topic, search_options).take(1) || ""
 
-    client.retweet!(tweet)
-    client.favorite(tweet)
+    	client.retweet!(tweet)
+    	client.favorite(tweet)
 
-  end
+	end
+
+    task :stressed => :environment do 
+
+		client.search("#stressed", search_options).take(2).each do |tweet|
+		  
+		client.favorite(tweet)
+		client.update("@#{tweet.user.screen_name} Stressed? Try some delicious, relaxing #Kava!",
+			in_reply_to_status_id: tweet.id)
+		
+		end
+
+  	end
 
 end
