@@ -43,7 +43,7 @@ namespace :kavabot do
 		text = "@#{tweet.user.screen_name} Stressed? Try some delicious, relaxing #Kava!"
 
 		client.favorite(tweet)
-		client.retweet!(tweet, text, in_reply_to_status_id: tweet.id)
+		client.retweet!(tweet, text)
 		
 		end
 
