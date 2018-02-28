@@ -9,7 +9,7 @@ namespace :kavabot do
 	  config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
 	end
 
-	@topic = ["#kava", "#kava", "#kava", "#kava", "#kavabars", "#hawaii", "#vanuatu", "#fiji"].sample
+	@topic = ["#kava", "#kava", "#kava", "#kava", "#kavabars", "#hawaii", "#vanuatu", "#fiji", "#organic", "#rawjuice"].sample
 
 	search_options = {
 		result_type: "recent"
