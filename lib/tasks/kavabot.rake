@@ -38,11 +38,12 @@ namespace :kavabot do
 
     task :stressed => :environment do 
 
+    	text = "@#{tweet.user.screen_name} Stressed? Try some delicious, relaxing #Kava!"
+
 		client.search("#stressed", search_options).take(1).each do |tweet|
 		  
 		client.favorite(tweet)
-		client.retweet!(tweet, text: "@#{tweet.user.screen_name} Stressed? Try some delicious, relaxing #Kava!",
-			in_reply_to_status_id: tweet.id)
+		client.retweet!(tweet, text, in_reply_to_status_id: tweet.id)
 		
 		end
 
