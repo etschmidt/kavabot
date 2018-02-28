@@ -41,7 +41,7 @@ namespace :kavabot do
 		client.search("#stressed", search_options).take(2).each do |tweet|
 		  
 		client.favorite(tweet)
-		client.update("@#{tweet.user.screen_name} Stressed? Try some delicious, relaxing #Kava!",
+		client.update("@#{tweet.user.screen_name} Stressed? Try some delicious, relaxing #Kava!", attachment_url: tweet.entities.url,
 			in_reply_to_status_id: tweet.id)
 		
 		end
