@@ -17,22 +17,22 @@ namespace :kavabot do
 
 	task :favorite => :environment do
 		
-		tweets = client.search(@topic).take(10) || ""
+		client.search(@topic, search_options).take(10).each do |tweet|
 
-		tweets.each do |tw|
-			if !tw.favorited?
-				client.favorite(tw.id)
-			end
+			client.favorite(tweet)
+		
 		end
 
 	end
 
 	task :retweet => :environment do
 
-		tweet = client.search(@topic, search_options).take(1) || ""
+		client.search(@topic, search_options).take(1).each do |tweet|
 
-    	client.retweet!(tweet)
-    	client.favorite(tweet)
+	    	client.retweet!(tweet)
+	    	client.favorite(tweet)
+
+	    end
 
 	end
 
