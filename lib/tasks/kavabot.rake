@@ -52,7 +52,7 @@ namespace :kavabot do
   	
   		client.search(@topic, search_options).take(2).each do |tweet|
   		
-  			user = tweet.user_id
+  			user = tweet.user
 
   			client.follow(user)
 
