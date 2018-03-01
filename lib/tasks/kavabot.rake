@@ -11,9 +11,7 @@ namespace :kavabot do
 
 	@topic = ["#kava", "#kava", "#kava", "#kava", "#kavabars", "#hawaii", "#vanuatu", "#fiji", "#organic", "#rawjuice"].sample
 
-	search_options = {
-		result_type: "recent"
-	}
+	search_options = {	}
 
 	task :favorite => :environment do
 		
