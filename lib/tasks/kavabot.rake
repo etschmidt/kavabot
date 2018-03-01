@@ -40,12 +40,22 @@ namespace :kavabot do
 
 		client.search("#stressed", search_options).take(2).each do |tweet|
 		  
-		client.favorite(tweet)
-		client.update("@#{tweet.user.screen_name} Stressed? Try some delicious, relaxing #Kava!", attachment_url: tweet.url,
-			in_reply_to_status_id: tweet.id)
+			client.favorite(tweet)
+			client.update("@#{tweet.user.screen_name} Stressed? Try some delicious, relaxing #Kava!", attachment_url: tweet.url,
+				in_reply_to_status_id: tweet.id)
 		
 		end
 
   	end
+
+  	task :follow => :environment do
+  	
+  		client.search("#stressed", search_options).take(2).each do |tweet|
+  		
+  			client.follow(tweet.user)
+  		end
+
+  	end
+
 
 end
