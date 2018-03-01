@@ -50,9 +50,12 @@ namespace :kavabot do
 
   	task :follow => :environment do
   	
-  		client.search("#stressed", search_options).take(2).each do |tweet|
+  		client.search(@topic, search_options).take(2).each do |tweet|
   		
-  			client.follow(tweet.user)
+  			user = tweet.user_id
+
+  			client.follow(user)
+
   		end
 
   	end
