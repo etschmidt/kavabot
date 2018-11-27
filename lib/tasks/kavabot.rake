@@ -13,7 +13,7 @@ namespace :kavabot do
 
 # this is to angrily complain to Expedia on twitter
 	@complaint = [".@expedia please CONFIRM MY FLIGHT or tell me why you can\'t",
-				".@expedia please CONFIRM MY FLIGHT or refund my money", 
+				".@expedia please CONFIRM MY FLIGHT; I paid over $1,000 for it and would appreciate a little service", 
 				".@expedia Are you able to CONFIRM MY FLIGHT without keeping me on hold for 4 hours (or at all)?!?", 
 				".@expedia what is the direct line (email or phone) of someone competent who can CONFIRM MY FLIGHT?"].sample
 
