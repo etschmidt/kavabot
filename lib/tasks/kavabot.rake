@@ -1,4 +1,4 @@
-namespace :kavabot do
+namespace :brnbot do
 
 	require 'twitter'
 
@@ -9,7 +9,21 @@ namespace :kavabot do
 	  config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
 	end
 
-	@topic = ["#kava", "#kava", "#kava", "#kavakava", "#kavakava", "#kavabars", "#hawaii", "#vanuatu", "#fiji", "#organic", "#rawjuice"].sample
+	@topic = ["satire", "business news", "comedy", "satire"]
+
+	task :favorite => :environment do
+
+		client.search(, result_type: "mixed").take(5).each do |tweet|
+
+			client.favorite(tweet)
+		
+		end
+
+	end
+
+
+
+#	@topic = ["#kava", "#kava", "#kava", "#kavakava", "#kavakava", "#kavabars", "#hawaii", "#vanuatu", "#fiji", "#organic", "#rawjuice"].sample
 
 # this is to angrily complain to Expedia on twitter
 	@complaint = [".@expedia please CONFIRM MY FLIGHT or tell me why you can\'t",
@@ -22,17 +36,6 @@ namespace :kavabot do
 	end
 
 
-	search_options = {	}
-
-	task :favorite => :environment do
-		
-		client.search(@topic, search_options).take(10).each do |tweet|
-
-			client.favorite(tweet)
-		
-		end
-
-	end
 
 	task :retweet => :environment do
 
