@@ -13,7 +13,7 @@ namespace :brnbot do
 
 	task :favorite => :environment do
 
-		client.search(, result_type: "mixed").take(5).each do |tweet|
+		client.search(@topic, result_type: "mixed").take(5).each do |tweet|
 
 			client.favorite(tweet)
 		
