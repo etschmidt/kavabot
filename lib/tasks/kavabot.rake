@@ -1,17 +1,17 @@
 namespace :brnbot do
 
-	require 'twitter'
-
-	client = Twitter::REST::Client.new do |config|
-	  config.consumer_key        = ENV["CONSUMER_KEY"]
-	  config.consumer_secret     = ENV["CONSUMER_SECRET"]
-	  config.access_token        = ENV["ACCESS_TOKEN"]
-	  config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
-	end
-
-	@topic = ["satire", "business news", "comedy", "satire"]
-
 	task :favorite => :environment do
+		require 'twitter'
+
+		client = Twitter::REST::Client.new do |config|
+		  config.consumer_key        = ENV["CONSUMER_KEY"]
+		  config.consumer_secret     = ENV["CONSUMER_SECRET"]
+		  config.access_token        = ENV["ACCESS_TOKEN"]
+		  config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
+		end
+
+		@topic = ["satire", "business news", "comedy", "satire"]
+
 
 		client.search(@topic, result_type: "mixed").take(5).each do |tweet|
 
@@ -19,7 +19,7 @@ namespace :brnbot do
 		
 		end
 
-	end
+end
 
 
 
