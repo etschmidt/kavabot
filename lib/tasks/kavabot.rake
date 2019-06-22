@@ -12,17 +12,16 @@ namespace :brnbot do
 
 		@topic = ["satire", "business news", "comedy", "satire"]
 
-
 		client.search(@topic, result_type: "mixed").take(5).each do |tweet|
-
 			client.favorite(tweet)
-		
 		end
+
+	end
 
 end
 
 
-
+=begin
 #	@topic = ["#kava", "#kava", "#kava", "#kavakava", "#kavakava", "#kavabars", "#hawaii", "#vanuatu", "#fiji", "#organic", "#rawjuice"].sample
 
 # this is to angrily complain to Expedia on twitter
